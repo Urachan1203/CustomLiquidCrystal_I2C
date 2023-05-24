@@ -44,9 +44,17 @@ inline void LiquidCrystal_I2C::write(uint8_t value) {
 // can't assume that its in that state when a sketch starts (and the
 // LiquidCrystal constructor is called).
 
+// LiquidCrystal_I2C::LiquidCrystal_I2C()
+// {
+// 	// dummy constructor
+// }
+
 LiquidCrystal_I2C::LiquidCrystal_I2C()
 {
-	// dummy constructor
+  _Addr = 0x00;
+  _cols = 16;
+  _rows = 2;
+  _backlightval = LCD_NOBACKLIGHT;
 }
 
 LiquidCrystal_I2C::LiquidCrystal_I2C(uint8_t lcd_Addr,uint8_t lcd_cols,uint8_t lcd_rows)
@@ -318,6 +326,10 @@ void LiquidCrystal_I2C::printstr(const char c[]){
 	//This function is not identical to the function used for "real" I2C displays
 	//it's here so the user sketch doesn't have to be changed 
 	print(c);
+}
+
+void LiquidCrystal_I2C::SetAddr(uint8_t new_addr){
+	_Addr = new_addr;
 }
 
 

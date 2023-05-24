@@ -110,6 +110,8 @@ void off();
 uint8_t init_bargraph(uint8_t graphtype);
 void draw_horizontal_graph(uint8_t row, uint8_t column, uint8_t len,  uint8_t pixel_col_end);
 void draw_vertical_graph(uint8_t row, uint8_t column, uint8_t len,  uint8_t pixel_col_end);
+
+void SetAddr(uint8_t new_addr);
 	 
 
 private:
